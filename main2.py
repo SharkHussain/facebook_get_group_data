@@ -63,6 +63,14 @@ for post in source_group_posts:
         #graph.put_object(parent_object=target_group_id, connection_name="feed", message=message)
 
 
+token="EAAXkpg46iwUBABk3UbLPAB5s1Rz6Ds9MccBhx8FKFR3UNzGra3DzZBNiTDdb4u2IClTSoZCxn59VNzjPewxntOn3ojbu2pYB6A8Kw9VKs0MdRHxkmUTCsgK25kLWMM9D0ZCb9JxzuEFcsy1CBe1t9mkgp4UO1qhk6tV4CfIfKo14ZCVzOmS9bg4jyQ3oZBtQLU5YZBfsqhlk1VVZB9CRw0wQUPIafDb5ZBQXDdn3Sl8IQrJoaFPZCRhSD"
+target_id="742862330588061"
+message="testing... "
+
+graph = facebook.GraphAPI(access_token=token, version="3.1")
+
+
+graph.put_object(parent_object=target_id, connection_name="feed", message=message)
 
 #https://amzn.to/3WE3rwt
 
@@ -117,3 +125,19 @@ import re
 url=requests.get(u).text
 amz_link = re.findall(r'cashbackUrl = .*;', url)
 print(amz_link[0].replace('cashbackUrl =', '').replace('"', '').replace(';', '').strip())
+
+
+
+
+################################################
+
+token="EAAXkpg46iwUBAJskeKrZAAocrMwl64qC3JmdsVuAjZAqpplJLNt4LwCnW1uMZADAozdedWjwIUzX3IloJVlcrKZCrcEr1Na9feQGCuLD7fbhH6lcYdM1loNOzZBZBvDkw48xunINNsK5kOcqk6d4PocC7rBlsRu9fsTvXXkHuXRuaZBpYUJihlQBsRwsubhsQhqafYD1jOwMbJhe1uEdhPVPUZBk9bMH5MMkNJGlFtbNaXOZAkHAmzIph"
+#token="1658776737975045|mNU7yjnHy3a5f14LKkDn44aKC98"
+target_id="742862330588061"
+me_id="586032989991946"
+
+graph = facebook.GraphAPI(token)
+#profile = graph.get_object("me")
+#friends = graph.get_connections("me", "friends")
+graph.put_object("me", "feed", message="I am writing on my wall!")
+
